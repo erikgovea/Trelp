@@ -6,7 +6,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.example.project02.user;
+import com.example.project02.User;
 
 import java.util.List;
 
@@ -14,18 +14,23 @@ import java.util.List;
 public interface TrelpDAO {
 
     @Insert
-    void insert(user... user);
+    void insert(User... user);
 
     @Update
-    void update(user... user);
+    void update(User... user);
 
     @Delete
-    void delete(user user);
+    void delete(User user);
+
+    @Query("SELECT * FROM " + AppDataBase.USER_TABLE+ " WHERE mUsername = :username")
+    User getUserByUsername(String username);
+
+    @Query("SELECT * FROM " + AppDataBase.USER_TABLE + " WHERE mUserId = :userId")
+    List<User> getUserById(int userId);
 
     @Query("SELECT * FROM " + AppDataBase.USER_TABLE)
-    List<user> getUserByUsername(String username);
+    List<User> getAllUsers();
 
 
-    @Query("SELECT * FROM " + AppDataBase.USER_TABLE)
-    List<user> getUserById(int logId);
+
 }

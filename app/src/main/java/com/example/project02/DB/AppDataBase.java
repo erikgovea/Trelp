@@ -6,10 +6,10 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.example.project02.user;
+import com.example.project02.User;
 
 //code from gymlog from Dr.C that i tried to convert to mine from the videos
-@Database(entities = {user.class}, version = 1)
+@Database(entities = {User.class}, version = 1)
 //@TypeConverters({DateTypeConverter.class}) possible date later on
 public abstract class AppDataBase extends RoomDatabase {
     public static final String DATABASE_NAME = "user.db";

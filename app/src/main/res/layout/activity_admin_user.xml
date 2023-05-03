@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/normal_review_button"
         android:layout_width="257dp"
         android:layout_height="92dp"
         android:layout_marginTop="44dp"
@@ -15,24 +15,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+        app:layout_constraintTop_toBottomOf="@+id/normal_search_editText" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/normal_search_editText"
         android:layout_width="299dp"
         android:layout_height="86dp"
         android:layout_marginTop="32dp"
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
-        android:text="Search:"
+        android:hint="Search:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button8" />
+        app:layout_constraintTop_toBottomOf="@+id/normal_map_button" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/normal_map_button"
         android:layout_width="188dp"
         android:layout_height="86dp"
         android:layout_marginTop="108dp"
@@ -63,7 +63,7 @@
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+        app:layout_constraintTop_toBottomOf="@+id/normal_review_button" />
 
     <Button
         android:id="@+id/button6"

@@ -7,17 +7,17 @@ import androidx.room.PrimaryKey;
 import com.example.project02.DB.AppDataBase;
 
 @Entity(tableName = AppDataBase.USER_TABLE)
-public class user {
+public class User {
 
     @PrimaryKey(autoGenerate = true)
-    private int mLoginId;
+    private int mUserId;
 
     private boolean mIsAdmin;
     private boolean mIsSeller;
     private String mUsername;
     private String mPassword;
 
-    public user( boolean isAdmin, boolean isSeller, String username, String password ){
+    public User(boolean isAdmin, boolean isSeller, String username, String password ){
         mIsAdmin = isAdmin;
         mIsSeller = isSeller;
         mUsername = username;
@@ -29,7 +29,7 @@ public class user {
     @Override
     public String toString() {
         return "user{" +
-                "mLoginId=" + mLoginId +
+                "mLoginId=" + mUserId +
                 ", mIsAdmin=" + mIsAdmin +
                 ", mIsSeller=" + mIsSeller +
                 ", mPassword=" + mPassword +
@@ -37,12 +37,12 @@ public class user {
                 '}';
     }
 
-    public int getLoginId() {
-        return mLoginId;
+    public int getUserId() {
+        return mUserId;
     }
 
-    public void setLoginId(int loginId) {
-        mLoginId = loginId;
+    public void setUserId(int userId) {
+        mUserId = userId;
     }
 
     public boolean isAdmin() {
