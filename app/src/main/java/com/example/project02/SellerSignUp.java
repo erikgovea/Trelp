@@ -6,9 +6,9 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class SignUpActivity extends AppCompatActivity {
+public class SellerSignUp  extends AppCompatActivity {
     public static Intent sIntent(Context context){
-        Intent intent = new Intent(context, SignUpActivity.class);
+        Intent intent = new Intent(context, SellerSignUp.class);
         return intent;
 
     }
@@ -16,8 +16,7 @@ public class SignUpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
+        setContentView(R.layout.activity_signupseller);
 
     }
-
 }

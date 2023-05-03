@@ -1,9 +1,11 @@
 package com.example.project02;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     TrelpDAO mTrelpDAO;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +47,37 @@ public class MainActivity extends AppCompatActivity {
         mTrelpDAO = Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DATABASE_NAME).allowMainThreadQueries().build().TrelpDAO();
 
 
+        signup_main_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                //builder.setCancelable(true);
+                builder.setTitle("Select what kind of user: ");
 
+               builder.setPositiveButton("Normal", new DialogInterface.OnClickListener() {
+                   @Override
+                   public void onClick(DialogInterface dialog, int which) {
+                      Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
+
+                       startActivity(intent);
+                   }
+
+               });
+                builder.setNegativeButton("Seller", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(MainActivity.this, SellerSignUp.class);
+
+                        startActivity(intent);
+                    }
+
+                });
+
+            AlertDialog dialog = builder.create();
+            dialog.show();
+            }
+
+        });
 
         login_main_button.setOnClickListener(new View.OnClickListener() {
             @Override
