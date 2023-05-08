@@ -20,8 +20,8 @@ import com.example.project02.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
-    EditText username_main_editText;
-    EditText password_main_editText;
+    private EditText username_main_editText;
+    private EditText password_main_editText;
     Button login_main_button;
     Button signup_main_button;
 
@@ -43,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-        mTrelpDAO = Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DATABASE_NAME).allowMainThreadQueries().build().TrelpDAO();
-
+        //private void getDatabase(){
+            mTrelpDAO = Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DATABASE_NAME).allowMainThreadQueries().build().TrelpDAO();
+        //}
 
         signup_main_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,12 +79,12 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        login_main_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startApp();
-            }
-        });
+//        login_main_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startApp();
+//            }
+//        });
 
     }
     public static Intent sIntent(Context context){
@@ -96,6 +96,22 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), normalUser.class);
         startActivity(intent);
     }
+
+    private void login(){
+        username_main_editText = findViewById(R.id.username_main);
+        password_main_editText = findViewById(R.id.password_main);
+
+        login_main_button = findViewById(R.id.login_button_main);
+
+        login_main_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startApp();
+            }
+        });
+
+    }
+
 
 
 

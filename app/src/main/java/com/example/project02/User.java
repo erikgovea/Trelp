@@ -16,12 +16,14 @@ public class User {
     private boolean mIsSeller;
     private String mUsername;
     private String mPassword;
+//    private boolean mIsBanned;
 
-    public User(boolean isAdmin, boolean isSeller, String username, String password ){
+    public User(boolean isAdmin, boolean isSeller, String username, String password){
         mIsAdmin = isAdmin;
         mIsSeller = isSeller;
         mUsername = username;
         mPassword = password;
+        //mIsBanned = isBanned;
     }
 
 
@@ -33,9 +35,18 @@ public class User {
                 ", mIsAdmin=" + mIsAdmin +
                 ", mIsSeller=" + mIsSeller +
                 ", mPassword=" + mPassword +
+                //", mIsBanned=" + mIsBanned +
                 ", mUsername='" + mUsername + '\'' +
                 '}';
     }
+
+//    public boolean ismIsBanned() {
+//        return mIsBanned;
+//    }
+//
+//    public void setmIsBanned(boolean mIsBanned) {
+//        this.mIsBanned = mIsBanned;
+//    }
 
     public int getUserId() {
         return mUserId;

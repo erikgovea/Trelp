@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Project02</string>
+    <string name="seller">SELLER:</string>
+    <string name="check_reviews">Check Reviews</string>
+    <string name="update_information">Update Information</string>
+    <string name="search">Search:</string>
+    <string name="map">Map</string>
+    <string name="leave_a_review">Leave a review?</string>
 </resources>
