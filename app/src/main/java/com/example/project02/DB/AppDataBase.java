@@ -9,11 +9,13 @@ import androidx.room.RoomDatabase;
 import com.example.project02.User;
 
 //code from gymlog from Dr.C that i tried to convert to mine from the videos
-@Database(entities = {User.class}, version = 1)
+@Database(entities = {User.class}, version = 2)
 //@TypeConverters({DateTypeConverter.class}) possible date later on
 public abstract class AppDataBase extends RoomDatabase {
     public static final String DATABASE_NAME = "user.db";
     public static final String USER_TABLE = "user_table";
+
+    public static final String REVIEW_TABLE = "review_table";
 
     private static volatile AppDataBase instance;
 
