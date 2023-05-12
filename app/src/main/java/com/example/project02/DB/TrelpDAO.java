@@ -27,7 +27,7 @@ public interface TrelpDAO {
     User getUserByUsername(String username);
 
     @Query("SELECT * FROM " + AppDataBase.USER_TABLE + " WHERE mUserId = :userId")
-    List<User> getUserById(int userId);
+    User getUserById(int userId);
 
     @Query("SELECT * FROM " + AppDataBase.USER_TABLE)
     List<User> getAllUsers();

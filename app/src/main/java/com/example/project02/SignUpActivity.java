@@ -56,7 +56,7 @@ public class SignUpActivity extends AppCompatActivity {
                 password = passwordSignup.getText().toString();
                 confirmpassword = passwordConfirmSignup.getText().toString();
 
-                User normalUser = new User(false, false, username, password);
+                User normalUser = new User(false, false, username, password, false, null, null);
 
                 mTrelpDAO.insert(normalUser);
                 users = mTrelpDAO.getAllUsers();
@@ -65,27 +65,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     public static Intent sIntent(Context context){

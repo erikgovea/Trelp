@@ -21,7 +21,8 @@ import com.example.project02.databinding.ActivityMainBinding;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    static final String USER_ID_KEY = " com.example.project02.userIdKey";
+    static final String PREFERENCES_KEY = " com.example.project02.PREFENCES_KEY";
     ActivityMainBinding binding;
     private EditText username_main_editText;
     private EditText password_main_editText;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     String password;
     public User mUser;
     List<User> users;
+    private int mUserId = -1;
 
 
 
@@ -46,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         signup_main_button = binding.signupButtonMain;
-        User adminUser1 = new User(true, false, "Erik", "Trelp");
-        User sellerUser1 = new User(false, true, "El_Huarache", "csumb");
+        User adminUser1 = new User(true, false, "Erik", "Trelp", false, null, null);
+        User sellerUser1 = new User(false, true, "El_Huarache", "csumb", false, "El Huarache", "mexican");
        mTrelpDAO.insert(adminUser1, sellerUser1);
         users = mTrelpDAO.getAllUsers();
         login();
@@ -101,7 +103,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void startApp(){
+        mUserId= mUser.getUserId();
         Intent intent = new Intent(getApplicationContext(), normalUser.class);
+        intent.putExtra(USER_ID_KEY, mUserId );
         startActivity(intent);
     }
 
@@ -163,7 +167,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+    public static Intent intentFactory(Context context,int userId){
+        Intent intent = new Intent(context, MainActivity.class);
+        intent.putExtra(USER_ID_KEY, userId);
+        return intent;
+    }
 
 
 
