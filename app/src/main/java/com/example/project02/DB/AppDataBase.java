@@ -11,7 +11,7 @@ import com.example.project02.ReviewTable;
 import com.example.project02.User;
 
 //code from gymlog from Dr.C that i tried to convert to mine from the videos
-@Database(entities = {User.class, ReviewTable.class}, version = 4)
+@Database(entities = {User.class, ReviewTable.class}, version = 5)
 @TypeConverters({DateTypeConverter.class})
 public abstract class AppDataBase extends RoomDatabase {
     public static final String DATABASE_NAME = "user.db";

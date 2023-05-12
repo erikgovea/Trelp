@@ -100,11 +100,13 @@ public class normalUser extends AppCompatActivity {
     }
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
+        Intent temp = getIntent();
+        mUserId = temp.getIntExtra(USER_ID_KEY, - 1);
         mUser = mTrelpDAO.getUserById(mUserId);
         if(mUser != null){
 
             MenuItem item = menu.findItem(R.id.logoutbutton);
-            item.setTitle("error2");
+            item.setTitle(mUser.getUsername());
         }else{
             MenuItem item = menu.findItem(R.id.logoutbutton);
             item.setTitle("erro: user null");

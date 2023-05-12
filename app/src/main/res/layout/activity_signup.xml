@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/signupNormalUsrnameText"
+        android:id="@+id/sellerUsernameText"
         android:layout_width="236dp"
         android:layout_height="84dp"
         android:layout_marginTop="108dp"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/sellerNPasswordText"
+        android:id="@+id/sellerSPasswordText"
         android:layout_width="235dp"
         android:layout_height="73dp"
         android:layout_marginTop="44dp"
@@ -31,10 +31,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signupNormalUsrnameText" />
+        app:layout_constraintTop_toBottomOf="@+id/sellerUsernameText" />
 
     <EditText
-        android:id="@+id/confPasswordNormalText"
+        android:id="@+id/confPasswordSellerText"
         android:layout_width="236dp"
         android:layout_height="70dp"
         android:layout_marginTop="48dp"
@@ -45,10 +45,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sellerNPasswordText" />
+        app:layout_constraintTop_toBottomOf="@+id/sellerSPasswordText" />
 
     <Button
-        android:id="@+id/normalSignupButton"
+        android:id="@+id/SellerSignupButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
@@ -57,6 +57,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confPasswordNormalText" />
+        app:layout_constraintTop_toBottomOf="@+id/confPasswordSellerText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

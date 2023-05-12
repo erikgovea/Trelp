@@ -6,48 +6,49 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/signupNormalUsrnameText"
+        android:id="@+id/sellerUsernameText"
         android:layout_width="236dp"
         android:layout_height="84dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Enter a username:"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/sellerNPasswordText"
+        android:id="@+id/sellerSPasswordText"
         android:layout_width="235dp"
         android:layout_height="73dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Enter a password:"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.522"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signupNormalUsrnameText" />
+        app:layout_constraintTop_toBottomOf="@+id/sellerUsernameText" />
 
     <EditText
-        android:id="@+id/confPasswordNormalText"
+        android:id="@+id/confPasswordSellerText"
         android:layout_width="236dp"
         android:layout_height="70dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Reenter password:"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.548"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sellerNPasswordText" />
+        app:layout_constraintTop_toBottomOf="@+id/sellerSPasswordText" />
 
     <Button
-        android:id="@+id/normalSignupButton"
+        android:id="@+id/SellerSignupButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -57,47 +58,50 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6"
+        app:layout_constraintTop_toBottomOf="@+id/imagetext"
         app:layout_constraintVertical_bias="0.062" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/FtruckNameText"
         android:layout_width="243dp"
         android:layout_height="66dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Food Truck Name:"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confPasswordNormalText" />
+        app:layout_constraintTop_toBottomOf="@+id/confPasswordSellerText" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/descSellerText"
         android:layout_width="253dp"
         android:layout_height="54dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Description:"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.575"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintTop_toBottomOf="@+id/FtruckNameText" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName6"
+        android:id="@+id/imagetext"
         android:layout_width="227dp"
         android:layout_height="63dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Include Pictures:
 "
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.57"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
+        app:layout_constraintTop_toBottomOf="@+id/descSellerText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

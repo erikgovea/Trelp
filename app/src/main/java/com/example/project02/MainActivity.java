@@ -48,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         signup_main_button = binding.signupButtonMain;
-        User adminUser1 = new User(true, false, "Erik", "Trelp", false, null, null);
-        User sellerUser1 = new User(false, true, "El_Huarache", "csumb", false, "El Huarache", "mexican");
+        User adminUser1 = new User(true, false, "Erik", "Trelp", false, null, null, null);
+        User sellerUser1 = new User(false, true, "El_Huarache", "csumb", false, "El Huarache", "mexican","sub" );
        mTrelpDAO.insert(adminUser1, sellerUser1);
         users = mTrelpDAO.getAllUsers();
         login();
@@ -103,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void startApp(){
+
         mUserId= mUser.getUserId();
         Intent intent = new Intent(getApplicationContext(), normalUser.class);
         intent.putExtra(USER_ID_KEY, mUserId );
@@ -129,7 +130,12 @@ public class MainActivity extends AppCompatActivity {
                            startActivity(intent);
 
                         }else if(mUser.isSeller()){
+
+
+
+                            mUserId= mUser.getUserId();
                             Intent intent = new Intent(getApplicationContext(), sellerPage.class);
+                            intent.putExtra(USER_ID_KEY, mUserId );
                             startActivity(intent);
 
                         }

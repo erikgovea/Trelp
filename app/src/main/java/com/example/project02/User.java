@@ -22,20 +22,13 @@ public class User {
 
     public String truckName;
     private String mDesc;
-//    private Button image;
+
+    private String mImage;
 
 
     private boolean mIsBanned;
-//    @Ignore
-//    public User(boolean isAdmin,boolean isSeller, String username, String password, boolean isBanned){
-//        mIsAdmin = isAdmin;
-//        mIsSeller = isSeller;
-//        mUsername = username;
-//        mPassword = password;
-//        mIsBanned = isBanned;
-//    }
-//    @Ignore
-    public User(boolean isAdmin, Boolean isSeller,String username, String password, boolean isBanned, String truckName, String desc){
+
+    public User(boolean isAdmin, Boolean isSeller,String username, String password, boolean isBanned, String truckName, String desc, String image){
         mIsAdmin = isAdmin;
         mIsSeller = isSeller;
         mUsername = username;
@@ -43,6 +36,7 @@ public class User {
         mIsBanned = isBanned;
         truckName = truckName;
         mDesc = desc;
+        mImage =  image;
 
     }
 
@@ -58,6 +52,8 @@ public class User {
                 ", mPassword=" + mPassword +
                 ", mIsBanned=" + mIsBanned +
                 ", mTruckname=" + truckName +
+                ", mImage=" + mImage +
+
                 ", mDesc=" + mDesc +
                 ", mUsername='" + mUsername + '\'' +
                 '}';
@@ -121,14 +117,16 @@ public class User {
     }
 
     public void setDesc(String desc) {
-        this.mDesc = mDesc;
+        this.mDesc = mDesc;}
+
+    public String getImage() {
+        return mImage;
     }
 
-//    public Button getImage() {
-//        return image;
-//    }
-//
-//    public void setImage(Button image) {
-//        this.image = image;
-//    }
+    public void setmImage(String mImage) {
+        this.mImage = mImage;
+    }
 }
+
+
+
