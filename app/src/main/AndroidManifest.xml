@@ -27,6 +27,11 @@
             android:name=".SignUpActivity"
             android:exported="false"/>
         <activity android:name=".SellerSignUp"/>
+        <activity android:name=".AdminPage"
+            android:exported="false"/>
+        <activity android:name=".sellerPage"
+            android:exported="false"/>
+
     </application>
 
 </manifest>

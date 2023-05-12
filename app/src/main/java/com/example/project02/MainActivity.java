@@ -12,10 +12,13 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.project02.DB.AppDataBase;
 import com.example.project02.DB.TrelpDAO;
 import com.example.project02.databinding.ActivityMainBinding;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,27 +28,32 @@ public class MainActivity extends AppCompatActivity {
     Button login_main_button;
     Button signup_main_button;
 
-    TrelpDAO mTrelpDAO;
+    private TrelpDAO mTrelpDAO;
+    String username;
+    String password;
+    public User mUser;
+    List<User> users;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mTrelpDAO = Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DATABASE_NAME).allowMainThreadQueries().fallbackToDestructiveMigration().build().TrelpDAO();
         setContentView(R.layout.activity_main);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        username_main_editText = binding.usernameMain;
-        password_main_editText = binding.passwordMain;
-        login_main_button = binding.loginButtonMain;
         signup_main_button = binding.signupButtonMain;
+        User adminUser1 = new User(true, false, "Erik", "Trelp");
+        User sellerUser1 = new User(false, true, "El_Huarache", "csumb");
+       mTrelpDAO.insert(adminUser1, sellerUser1);
+        users = mTrelpDAO.getAllUsers();
+        login();
 
 
 
-        //private void getDatabase(){
-            mTrelpDAO = Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DATABASE_NAME).allowMainThreadQueries().build().TrelpDAO();
-        //}
 
         signup_main_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,11 +114,57 @@ public class MainActivity extends AppCompatActivity {
         login_main_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startApp();
+                username = username_main_editText.getText().toString();
+                password = password_main_editText.getText().toString();
+                if(checkForUsersInDB()){
+                    if(! mUser.getPassword().equals(password)){
+                        Toast.makeText(MainActivity.this, "wrong password", Toast.LENGTH_SHORT).show();
+                    }else{
+                        if(mUser.isAdmin()){
+                           Intent intent = new Intent(getApplicationContext(), AdminPage.class);
+                           startActivity(intent);
+
+                        }else if(mUser.isSeller()){
+                            Intent intent = new Intent(getApplicationContext(), sellerPage.class);
+                            startActivity(intent);
+
+                        }
+                        else if(username.equals("")  || password.equals("")){
+                            Toast.makeText(MainActivity.this, "no info", Toast.LENGTH_SHORT).show();
+
+                        }else{
+                            startApp();
+
+                        }
+                    }
+                }
+
             }
         });
 
     }
+
+    public boolean checkForUsersInDB(){
+
+        mUser = mTrelpDAO.getUserByUsername(username);
+        if(mUser == null){
+            Toast.makeText(this, " no user " + username + " found", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+
+    public void wireup(){
+
+    }
+
+    private void logout(){
+//        AlertDialog.
+    }
+
+
+
+
 
 
 

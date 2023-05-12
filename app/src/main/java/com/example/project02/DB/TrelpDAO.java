@@ -6,6 +6,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import com.example.project02.ReviewTable;
 import com.example.project02.User;
 
 import java.util.List;
@@ -30,6 +31,22 @@ public interface TrelpDAO {
 
     @Query("SELECT * FROM " + AppDataBase.USER_TABLE)
     List<User> getAllUsers();
+
+    @Insert
+    void insert(ReviewTable... review);
+
+    @Update
+    void update(ReviewTable... review);
+    @Delete
+    void delete(ReviewTable... review);
+    //TODO: fix
+    @Query("SELECT * FROM " + AppDataBase.REVIEW_TABLE + " WHERE mUserId = :userId")
+    List<ReviewTable> getReviewByUsername(Integer userId);
+
+
+
+
+
 
 
 
