@@ -15,8 +15,8 @@ public class User {
     @PrimaryKey(autoGenerate = true)
     private int mUserId;
 
-    public boolean mIsAdmin;
-    public boolean mIsSeller;
+    private boolean mIsAdmin;
+    private boolean mIsSeller;
     private String mUsername;
     private String mPassword;
 
@@ -34,7 +34,7 @@ public class User {
         mUsername = username;
         mPassword = password;
         mIsBanned = isBanned;
-        truckName = truckName;
+
         mDesc = desc;
         mImage =  image;
 

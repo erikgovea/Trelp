@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
@@ -53,17 +54,22 @@ public class SignUpActivity extends AppCompatActivity {
                 username = usernameSignup.getText().toString();
                 password = passwordSignup.getText().toString();
                 confirmpassword = passwordConfirmSignup.getText().toString();
+                if(!password.equals(confirmpassword)){
+                    Toast.makeText(getApplicationContext(), " passwords not matching", Toast.LENGTH_SHORT).show();
+                }
 
-                User normalUser = new User(false, false, username, password, false, null, null, null);
+                else {
 
-                mTrelpDAO.insert(normalUser);
-                mUser = mTrelpDAO.getUserByUsername(username);
+                    User normalUser = new User(false, false, username, password, false, "", null, null);
 
-                mUserId= mUser.getUserId();
-                Intent intent = new Intent(getApplicationContext(), normalUser.class);
-                intent.putExtra(USER_ID_KEY, mUserId );
-                startActivity(intent);
+                    mTrelpDAO.insert(normalUser);
+                    mUser = mTrelpDAO.getUserByUsername(username);
 
+                    mUserId = mUser.getUserId();
+                    Intent intent = new Intent(getApplicationContext(), normalUser.class);
+                    intent.putExtra(USER_ID_KEY, mUserId);
+                    startActivity(intent);
+                }
 
             }
         });

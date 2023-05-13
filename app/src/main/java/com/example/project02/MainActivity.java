@@ -18,6 +18,7 @@ import com.example.project02.DB.AppDataBase;
 import com.example.project02.DB.TrelpDAO;
 import com.example.project02.databinding.ActivityMainBinding;
 
+import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
     public User mUser;
     List<User> users;
     private int mUserId = -1;
+
+    private TrelpDAO mTrelp;
 
 
 
@@ -109,6 +112,12 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(USER_ID_KEY, mUserId );
         startActivity(intent);
     }
+//    private void reviewlog(){
+//        String review = placeholder.getText().toString();
+//        ReviewTable table = new ReviewTable(review, mUserId, new Date());
+//        mTrelpDAO.insert(table);
+//
+//    }
 
     private void login(){
         username_main_editText = findViewById(R.id.username_main);

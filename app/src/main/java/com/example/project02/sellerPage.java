@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -25,7 +27,7 @@ public class sellerPage extends AppCompatActivity {
     public User mUser;
 
     private int mUserId = -1;
-
+    private Button updateinfo;
     private TrelpDAO mTrelpDAO;
     private void logout(){
 
@@ -146,6 +148,22 @@ public class sellerPage extends AppCompatActivity {
         mTrelpDAO = Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DATABASE_NAME).allowMainThreadQueries().fallbackToDestructiveMigration().build().TrelpDAO();
 
         setContentView(R.layout.activity_seller_user);
+//        updateinfo = findViewById(R.id.updateInformation);
+        update();
+
+    }
+
+    private void update(){
+        updateinfo = findViewById(R.id.updateInformation);
+        updateinfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), updateinfo.class);
+                intent.putExtra(USER_ID_KEY, mUserId);
+                startActivity(intent);
+            }
+        });
+
 
     }
 }

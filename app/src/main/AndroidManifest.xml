@@ -32,7 +32,10 @@
             android:exported="false"/>
         <activity android:name=".sellerPage"
             android:exported="false"/>
-
+        <activity android:name=".checkUsers"
+            android:exported="false"/>
+        <activity android:name=".updateinfo"
+            android:exported="false"/>
     </application>
 
 </manifest>
