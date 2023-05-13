@@ -15,8 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.PopupMenu;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -25,41 +24,27 @@ import androidx.room.Room;
 
 import com.example.project02.DB.AppDataBase;
 import com.example.project02.DB.TrelpDAO;
+import com.example.project02.databinding.ActivityMainBinding;
 
 import java.util.List;
 
-public class normalUser extends AppCompatActivity  {
-    private Button reviewButton;
-//    private static final String USER_ID_KEY = " com.example.project02.userIdKey";
-//    private static final String PREFERENCES_KEY = " com.example.project02.PREFENCES_KEY";
-    private SharedPreferences mPreferences = null;
-    public User mUser;
-
-    private int mUserId = -1;
-
+public class AdminPage extends AppCompatActivity {
     private TrelpDAO mTrelpDAO;
-
-    private Button reviewB;
-
-    private EditText searchbar;
-    private String search;
-    private Button searchButton;
+    private int mUserId = -1;
+    public User mUser;
+    private SharedPreferences mPreferences = null;
 
 
 
+    private Button viewUsers;
+    private List<User> mUserList;
 
-
-
-
-
-
+    private TextView display;
     public static Intent sIntent(Context context){
-        Intent intent = new Intent(context, normalUser.class);
+        Intent intent = new Intent(context, AdminPage.class);
         return intent;
 
     }
-
-
 
 
     @Override
@@ -67,81 +52,39 @@ public class normalUser extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         mTrelpDAO = Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DATABASE_NAME).allowMainThreadQueries().fallbackToDestructiveMigration().build().TrelpDAO();
 
-        setContentView(R.layout.activity_normal_user);
+        setContentView(R.layout.activity_admin_user);
 
-        reviewB = findViewById(R.id.normal_review_button);
-
-        searchButton = findViewById(R.id.seachButtonNormal);
-
-
-        leavingReview();
-        searching();
-
+        CheckUsers();
     }
 
-    private void searching(){
-        searchbar = findViewById(R.id.normal_search_editText);
-        search = searchbar.getText().toString();
-        List<User> sellers = mTrelpDAO.getSellerUsers();
-        for(User user: sellers){
-            if(user.getTruckname() != null && user.getTruckname().equals(search)){
-                searchButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(getApplicationContext(), sellerViewablePage.class );
-                        startActivity(intent);
-//                        return;
-                    }
-                });
+    private void CheckUsers(){
+        viewUsers = findViewById(R.id.viewUsersButton);
 
-            }
-//            else{
-//                Toast.makeText(this, "No Food truck found!", Toast.LENGTH_SHORT).show();
-//
-//            }
-
-        }
-//        Toast.makeText(this, "No Food truck found!", Toast.LENGTH_SHORT).show();
-    }
-
-    private void leavingReview(){
-        reviewB.setOnClickListener(new View.OnClickListener() {
+        viewUsers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PopupMenu popupMenu = new PopupMenu(normalUser.this, reviewB );
+//                display();
 
-                popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
-                MenuItem item = popupMenu.getMenu().findItem(R.id.item1);
-                List<User> addsellers = mTrelpDAO.getSellerUsers();
-
-               int i = 1;
-               for(User addseller: addsellers){
-//                   item = popupMenu.getMenu().findItem(R.id.item1 + i);
-//                   item.setTitle(addseller.getTruckname().toString());
-//
-//
-//                     item = popupMenu.getMenu().add(0, R.id.item1 + i, i, addseller.getTruckname());
-                   popupMenu.getMenu().add(0, R.id.item1 + i, i, addseller.getTruckname());
-
-                   i++;
-
-               }
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        switch (item.getItemId()){
-                            case R.id.item1:
-                                return true;
-                            default:
-                                return false;
-                        }
-                    }
-                });
-                popupMenu.show();
+//                mUserId= mUser.getUserId();
+                Intent intent = new Intent(getApplicationContext(), checkUsers.class);
+                intent.putExtra(USER_ID_KEY, mUserId );
+                startActivity(intent);
             }
         });
 
 
+    }
+    private void display(){
+        mUserList = mTrelpDAO.getAllUsers();
+        if(! mUserList.isEmpty()){
+            StringBuilder sb = new StringBuilder();
+            for(User user: mUserList){
+                sb.append(user.toString());
+            }
+             viewUsers.setText(sb.toString());
+        }else{
+            viewUsers.setText(R.string.no_users);
+        }
     }
     private void logout(){
 
@@ -226,7 +169,7 @@ public class normalUser extends AppCompatActivity  {
     private void checkForUser() {
 
         Intent temp = getIntent();
-         mUserId = temp.getIntExtra(USER_ID_KEY, - 1);
+        mUserId = temp.getIntExtra(USER_ID_KEY, - 1);
         //do we have a user in the preferences
         if(mUserId != -1){
             return;
@@ -250,5 +193,5 @@ public class normalUser extends AppCompatActivity  {
 
     }
 
-}
 
+}

@@ -35,16 +35,16 @@
         android:id="@+id/normal_map_button"
         android:layout_width="188dp"
         android:layout_height="86dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="4dp"
         android:gravity="center"
         android:text="Map"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/checkReportsButton"
         android:layout_width="244dp"
         android:layout_height="57dp"
         android:layout_marginTop="28dp"
@@ -66,12 +66,12 @@
         app:layout_constraintTop_toBottomOf="@+id/normal_review_button" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/viewUsersButton"
         android:layout_width="227dp"
         android:layout_height="64dp"
         android:layout_marginTop="40dp"
         android:text="View Users"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintTop_toBottomOf="@+id/checkReportsButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

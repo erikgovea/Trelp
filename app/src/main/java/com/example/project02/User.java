@@ -1,7 +1,10 @@
 package com.example.project02;
 
 
+import android.widget.Button;
+
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import com.example.project02.DB.AppDataBase;
@@ -16,15 +19,27 @@ public class User {
     private boolean mIsSeller;
     private String mUsername;
     private String mPassword;
-//    private boolean mIsBanned;
 
-    public User(boolean isAdmin, boolean isSeller, String username, String password){
+    public String truckName;
+    private String mDesc;
+
+    private String mImage;
+
+
+    private boolean mIsBanned;
+
+    public User(boolean isAdmin, Boolean isSeller,String username, String password, boolean isBanned, String truckName, String desc, String image){
         mIsAdmin = isAdmin;
         mIsSeller = isSeller;
         mUsername = username;
         mPassword = password;
-        //mIsBanned = isBanned;
+        mIsBanned = isBanned;
+
+        mDesc = desc;
+        mImage =  image;
+
     }
+
 
 
 
@@ -35,19 +50,20 @@ public class User {
                 ", mIsAdmin=" + mIsAdmin +
                 ", mIsSeller=" + mIsSeller +
                 ", mPassword=" + mPassword +
-                //", mIsBanned=" + mIsBanned +
+                ", mIsBanned=" + mIsBanned +
+                ", mTruckname=" + truckName +
+                ", mImage=" + mImage +
+
+                ", mDesc=" + mDesc +
                 ", mUsername='" + mUsername + '\'' +
                 '}';
     }
 
-//    public boolean ismIsBanned() {
-//        return mIsBanned;
-//    }
-//
-//    public void setmIsBanned(boolean mIsBanned) {
-//        this.mIsBanned = mIsBanned;
-//    }
 
+
+    public boolean isBanned() {
+        return mIsBanned;
+    }
     public int getUserId() {
         return mUserId;
     }
@@ -87,4 +103,30 @@ public class User {
     public void setPassword(String password) {
         mPassword = password;
     }
+
+    public String getTruckname() {
+        return truckName;
+    }
+
+    public void setTruckname(String mTruckname) {
+        this.truckName = mTruckname;
+    }
+
+    public String getDesc() {
+        return mDesc;
+    }
+
+    public void setDesc(String desc) {
+        this.mDesc = mDesc;}
+
+    public String getImage() {
+        return mImage;
+    }
+
+    public void setmImage(String mImage) {
+        this.mImage = mImage;
+    }
 }
+
+
+
